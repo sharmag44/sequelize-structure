@@ -1,15 +1,16 @@
 
 const { Router } = require('express');
 const app = require('../api');
-const auth = require("../middleware/auth")
+const middleware = require("../middleware/auth")
 const router = Router();
 
 router.get('/', (req, res) => res.send('Welcome to API'))
 
-router.post('/posts', auth.validateToken, app["posts"].createPost);
-router.get('/posts', auth.validateToken, app["posts"].getAllPosts);
-router.get('/posts/:id', auth.validateToken, app["posts"].getPostById);
-router.put('/posts/:id', auth.validateToken, app["posts"].updatePost);
-router.delete('/posts/:id', auth.validateToken, app["posts"].deletePost);
+const post = app.posts
+router.post('/posts', middleware.checkToken, post.createPost);
+router.get('/posts', middleware.checkToken, post.getAllPosts);
+router.get('/posts/:id', middleware.checkToken, post.getPostById);
+router.put('/posts/:id', middleware.checkToken, post.updatePost);
+router.delete('/posts/:id', middleware.checkToken, post.deletePost);
 
 module.exports = router;

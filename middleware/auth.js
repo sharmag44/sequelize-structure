@@ -2,7 +2,7 @@
 const jwt = require("../helpers/jwt")
 const moment = require('moment');
 
-exports.validateToken = async (req, res, next) => {
+exports.checkToken = async (req, res, next) => {
     try {
         const token = req.headers["x-access-token"] || req.body.token || req.query.token;
         if (!token || token == null) throw "token required";
@@ -25,7 +25,7 @@ exports.validateToken = async (req, res, next) => {
     }
 }
 
-exports.validateTokenOptional = (req, res, next) => {
+exports.optional = (req, res, next) => {
     var token =
         req.body.token || req.query.token || req.headers['x-access-token'];
     if (token) return this.validateToken(req, res, next);
