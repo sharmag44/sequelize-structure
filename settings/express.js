@@ -37,7 +37,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 
-// app.use(handleError())
+app.use(handleError)
 app.set('view engine', 'ejs');
 const root = path.normalize(__dirname + './../');
 app.set('views', path.join(root, 'views'));
