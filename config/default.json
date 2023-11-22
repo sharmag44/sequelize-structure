@@ -14,9 +14,6 @@
     "time": "1440h"
   },
   "env": "dev",
-  "redis": {
-    "url": "redis:127.0.0.1:6379"
-  },
   "logger": {
     "console": {
       "level": "silly",
