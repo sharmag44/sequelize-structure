@@ -1,10 +1,10 @@
 {
   "defaultActivationCode": "00000",
   "db": {
-    "username": "root",
-    "password": "@Myid44@@",
-    "database": "test_db",
-    "host": "localhost",
+    "username": "sql12664192",
+    "password": "vEfAYsGZCG",
+    "database": "sql12664192",
+    "host": "sql12.freemysqlhosting.net",
     "port": "3306",
     "dialect": "mysql"
   },
