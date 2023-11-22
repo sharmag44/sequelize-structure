@@ -1,6 +1,6 @@
 "use strict";
 
-const createComment = async (req, res) => {
+const create = async (req, res) => {
     try {
         const post = await db.post.create(req.body);
         return res.status(201).json({
@@ -11,7 +11,7 @@ const createComment = async (req, res) => {
     }
 };
 
-const getAllComments = async (req, res) => {
+const search = async (req, res) => {
     try {
         const posts = await db.comment.findAll(req.query);
         return res.status(200).json({ posts });
@@ -20,7 +20,7 @@ const getAllComments = async (req, res) => {
     }
 };
 
-const getCommentById = async (req, res) => {
+const get = async (req, res) => {
     try {
         const { commentId } = req.params;
         const comment = await db.comment.findOne({
@@ -35,7 +35,7 @@ const getCommentById = async (req, res) => {
     }
 };
 
-const updateComment = async (req, res) => {
+const update = async (req, res) => {
     try {
         const { commentId } = req.params;
         const [updated] = await db.post.update(req.body, {
@@ -51,7 +51,7 @@ const updateComment = async (req, res) => {
     }
 };
 
-const deleteComment = async (req, res) => {
+const remove = async (req, res) => {
     try {
         const { commentId } = req.params;
         const deleted = await db.comment.destroy({
@@ -67,9 +67,9 @@ const deleteComment = async (req, res) => {
 };
 
 module.exports = {
-    createComment,
-    getAllComments,
-    getCommentById,
-    updateComment,
-    deleteComment
+    create,
+    search,
+    get,
+    update,
+    remove
 };
